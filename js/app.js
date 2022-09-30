@@ -26,8 +26,16 @@ function reactBook(){
   })
     .then((response) => response.json())
     .then((data) => {
+
       const newImg = document.createElement("img");
+      newImg.src = `images/logo.png`;
       randomBookList.appendChild(newImg);
+      newImg.classList.add("test");
+      
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = `<strong>aaa</strong>`;
+      randomBookList.appendChild(newDiv);
+
       console.log(data.documents[0].title);
       console.log(data.documents[0].url);
     });
