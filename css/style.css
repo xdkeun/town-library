@@ -101,6 +101,15 @@ nav a {
     right: 10px;
 }
 
-.test{
-    width:500px;
+.random-book-list{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-align:center;
+    font-size:10px;
+}
+
+.random-book{
+    width:150px;
+    height:200px;
 }
