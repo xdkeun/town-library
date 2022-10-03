@@ -7,8 +7,16 @@ function book() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.documents[0].title);
-      console.log(data.documents[0].url);
+      const firstImg = document.createElement("img");
+      firstImg.src = data.documents[0].thumbnail;
+      randomBookFirst.appendChild(firstImg);
+      firstImg.classList.add("random-book");
+
+      const firstDiv = document.createElement("div");
+      firstDiv.innerHTML = `${data.documents[0].title}
+                            <div>${data.documents[0].price}</div>
+                            <a href=${data.documents[0].url}>More</a>`;
+      randomBookFirst.appendChild(firstDiv);
     });
 }
 
@@ -29,33 +37,11 @@ function reactBook() {
   })
     .then((response) => response.json())
     .then((data) => {
-      const firstImg = document.createElement("img");
-      firstImg.src = data.documents[0].thumbnail;
-      randomBookFirst.appendChild(firstImg);
-      firstImg.classList.add("random-book");
+      firstImg.src = data.documents[0].thumbnail;   
 
-      const firstDiv = document.createElement("div");
       firstDiv.innerHTML = `${data.documents[0].title}
                             <div>${data.documents[0].price}</div>
                             <a href=${data.documents[0].url}>More</a>`;
-      randomBookFirst.appendChild(firstDiv);
 
-      const secondImg = document.createElement("img");
-      secondImg.src = data.documents[1].thumbnail;
-      randomBookSecond.appendChild(secondImg);
-      secondImg.classList.add("random-book");
-
-      const secondDiv = document.createElement("div");
-      secondDiv.innerHTML = data.documents[1].title;
-      randomBookSecond.appendChild(secondDiv);
-
-      const thirdImg = document.createElement("img");
-      thirdImg.src = data.documents[2].thumbnail;
-      randomBookThird.appendChild(thirdImg);
-      thirdImg.classList.add("random-book");
-
-      const thirdDiv = document.createElement("div");
-      thirdDiv.innerHTML = data.documents[2].title;
-      randomBookThird.appendChild(thirdDiv);
     });
 }
