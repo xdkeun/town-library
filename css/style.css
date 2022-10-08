@@ -104,6 +104,10 @@ nav a {
     padding:20px 15px;
     box-shadow:0 5px 202px rgba(0, 0, 0, 0.5);
     transition:0.3s ease-in-out;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .random-book-wrapper .random-book:hover{
@@ -129,6 +133,7 @@ nav a {
     visibility: hidden; 
     opacity: 0;
     transition:0.3s ease-in-out;
+    width:200px;
 }
 
 .random-book-wrapper .random-book:hover .random-book-info{

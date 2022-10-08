@@ -4,6 +4,21 @@ const randomBookImg = document.querySelector(".random-book-img");
 const bookTitle = document.querySelector(".book-title");
 const bookAuthor = document.querySelector(".book-author");
 
+function book() {
+  fetch("https://dapi.kakao.com/v3/search/book?query=이&size=50&", {
+    method: "get",
+    headers: { Authorization: `KakaoAK ${REST_API_KEY}` },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);      
+      randomBookImg.src = `${data.documents[randomNumber].thumbnail}`;
+      bookTitle.innerHTML = `${data.documents[randomNumber].title}`;
+      bookAuthor.innerHTML = `${data.documents[randomNumber].authors}`;
+    });
+}
+book(); //처음 홈페이지 켰을 때 랜덤한 책 출력
+
 const love = document.querySelector(".love");
 love.addEventListener("mouseover", loveBook);
 function loveBook() {
