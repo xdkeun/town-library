@@ -12,9 +12,9 @@
     scroll-behavior: smooth;
 }
 
-a{
+a {
     text-decoration: none;
-    color:white;
+    color: white;
 }
 
 nav {
@@ -73,73 +73,73 @@ nav a {
     right: 65px;
 }
 
-.up-btn {
+.down-btn {
     width: 50px;
     right: 10px;
 }
 
-.random-book-wrapper{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:50px;
+.random-book-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
 }
 
-.random-book-category{
-    display:flex;
-    justify-content:center;
-    text-align:center;
-    font-size:30px;
-    padding:0 30px;
+.random-book-category {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    padding: 0 30px;
 }
 
-.random-book-category .category-btn{
-    margin-right:20px;
+.random-book-category .category-btn {
+    margin-right: 20px;
 }
 
-.random-book-wrapper .random-book{
-    height:215px;
-    background:#fff;
-    margin:30px 10px;
-    padding:20px 15px 50px 15px;
-    box-shadow:0 5px 202px rgba(0, 0, 0, 0.5);
-    transition:0.3s ease-in-out;
-    display:flex;
-    justify-content:center;
+.random-book-wrapper .random-book {
+    height: 215px;
+    background: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px 50px 15px;
+    box-shadow: 0 5px 202px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.random-book-wrapper .random-book:hover{
-    height:230px;
+.random-book-wrapper .random-book:hover {
+    height: 230px;
 }
 
-.random-book-wrapper .random-book .random-book-img{
-    position:relative;
-    width:240px;
-    height:180px;
+.random-book-wrapper .random-book .random-book-img {
+    position: relative;
+    width: 240px;
+    height: 180px;
     top: -50px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.random-book-wrapper .random-book .random-book-img img{
-    max-width:100%;
+.random-book-wrapper .random-book .random-book-img img {
+    max-width: 100%;
 }
 
-.random-book-wrapper .random-book .random-book-info{
-    text-align:center;
-    color:#111;
-    width:200px;    
+.random-book-wrapper .random-book .random-book-info {
+    text-align: center;
+    color: #111;
+    width: 200px;
 }
 
-.random-book-wrapper .random-book .random-book-info button{
+.random-book-wrapper .random-book .random-book-info button {
     visibility: hidden;
     opacity: 0;
-    transition:0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
-.random-book-wrapper .random-book:hover .random-book-info button{
+.random-book-wrapper .random-book:hover .random-book-info button {
     visibility: visible;
     opacity: 1;
     transition-delay: 0.3s;
@@ -154,41 +154,41 @@ nav a {
     color: #fff;
     background-color: #222;
     padding: 17px 60px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
-    font-size:20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+    font-size: 20px;
     border-radius: 10px;
-  }
-  
+}
 
-  
-  .category-btn:after {
+
+
+.category-btn:after {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     height: 490%;
     width: 140%;
-    background:green;
+    background: gray;
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  }
-  
-  .category-btn:hover:after {  
+}
+
+.category-btn:hover:after {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  }
+}
 
-  .btn-hover {
+.btn-hover {
     width: 200px;
     font-size: 16px;
     font-weight: 300;
     color: #fff;
     cursor: pointer;
-    margin-top:10px;
+    margin-top: 10px;
     height: 30px;
-    text-align:center;
+    text-align: center;
     border: none;
     background-size: 300% 100%;
     border-radius: 20px;
@@ -196,7 +196,7 @@ nav a {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-}       
+}
 
 .btn-hover:hover {
     background-position: 100% 0;
@@ -209,8 +209,17 @@ nav a {
 .btn-hover:focus {
     outline: none;
 }
+
 .btn-hover.more-color {
     background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
     box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
 }
 
+.copyright {
+    text-align: center;
+}
+
+.copyright a {
+    color: #111;
+    font-size: 20px;
+}
