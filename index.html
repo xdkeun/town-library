@@ -8,6 +8,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" size="16x16">
     <script src="https://kit.fontawesome.com/08edd7b20e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
 
     <title>Town Library</title>
 </head>
@@ -35,39 +36,121 @@
     <!--최상단바 끝-->
     <section class="random-book-category-wrapper">
         <div class="random-book-category">
-            <div>
-                <h4 class="love">사랑 관련 도서</h4>
-                <div><i class="fa-solid fa-heart"></i></div>
-            </div>
-            <div>
-                <h4 class="react">리액트 관련 도서</h4>
-                <div><i class="fa-brands fa-react"></i></div>
-            </div>
-            <div>
-                <h4 class="java">자바 관련 도서</h4>
-                <div><i class="fa-brands fa-java"></i></div>
-            </div>
+            <button class="category-btn economy"><i class="fa-solid fa-won-sign"></i> 경제 관련 도서</button>
+            <button class="category-btn stock"><i class="fa-solid fa-arrow-trend-up"></i> 주식 관련 도서</button>
+            <button class="category-btn love"><i class="fa-solid fa-heart"></i> 사랑 관련 도서</button>
+            <button class="category-btn react"><i class="fa-brands fa-react"></i> 리액트 관련 도서</button>
+            <button class="category-btn math"><i class="fa-solid fa-square-root-variable"></i> 수학 관련 도서</button>
         </div>
     </section>
+
 
     <section class="random-book-wrapper">
         <div class="random-book">
-                <img src="images/logo.png" class="random-book-img">
-            <div class="random-book-info">
-                <h3 class="book-title"></h3>
-                <p class="book-author"></p>
+            <img src="#" class="random-book-img">
+        <div class="random-book-info">
+            <h3 class="book-title"></h3>
+            <p class="book-author"></p>
+            <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
+            <div class="modal hidden">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <img src="#" class="modal-book-img">
+                    <div class="modal-book-wrapper">
+                        <div class="modal-book-title"></div>
+                        <div class="modal-book-price"></div>
+                    <div class="modal-book-story"></div>
+                    <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn More</a></button>
+                    <i class="fa-solid fa-x modal-close"></i>
+                </div>
             </div>
         </div>
+        </div>
+    </div>    
 
-        <div class="random-book">
-                <img src="images/logo.png" class="random-book-img">
-            <div class="random-book-info">
-                <h2>B</h2>
-                <p>BB</p>
+    <div class="random-book">
+        <img src="#" class="random-book-img">
+    <div class="random-book-info">
+        <h3 class="book-title"></h3>
+        <p class="book-author"></p>
+        <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
+        <div class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <img src="#" class="modal-book-img">
+                <div class="modal-book-wrapper">
+                    <div class="modal-book-title"></div>
+                    <div class="modal-book-price"></div>
+                <div class="modal-book-story"></div>
+                <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn More</a></button>
+                <i class="fa-solid fa-x modal-close"></i>
             </div>
         </div>
+    </div>
+    </div>
+</div>         <div class="random-book">
+    <img src="#" class="random-book-img">
+<div class="random-book-info">
+    <h3 class="book-title"></h3>
+    <p class="book-author"></p>
+    <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
+    <div class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <img src="#" class="modal-book-img">
+            <div class="modal-book-wrapper">
+                <div class="modal-book-title"></div>
+                <div class="modal-book-price"></div>
+            <div class="modal-book-story"></div>
+            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn More</a></button>
+            <i class="fa-solid fa-x modal-close"></i>
+        </div>
+    </div>
+</div>
+</div>
+</div>         
+<div class="random-book">
+    <img src="#" class="random-book-img">
+<div class="random-book-info">
+    <h3 class="book-title"></h3>
+    <p class="book-author"></p>
+    <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
+    <div class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <img src="#" class="modal-book-img">
+            <div class="modal-book-wrapper">
+                <div class="modal-book-title"></div>
+                <div class="modal-book-price"></div>
+            <div class="modal-book-story"></div>
+            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn More</a></button>
+            <i class="fa-solid fa-x modal-close"></i>
+        </div>
+    </div>
+</div>
+</div>
+</div>         <div class="random-book">
+    <img src="#" class="random-book-img">
+<div class="random-book-info">
+    <h3 class="book-title"></h3>
+    <p class="book-author"></p>
+    <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
+    <div class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <img src="#" class="modal-book-img">
+            <div class="modal-book-wrapper">
+                <div class="modal-book-title"></div>
+                <div class="modal-book-price"></div>
+            <div class="modal-book-story"></div>
+            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn More</a></button>
+            <i class="fa-solid fa-x modal-close"></i>
+        </div>
+    </div>
+</div>
+</div>
+</div> 
 
-    </section>
 
     <main>
         <!--메인 자료-->
@@ -75,7 +158,7 @@
 
         <div class="book-list">
             <!--책 내용 나오는 부분-->
-
+            
         </div>
         <!--책 내용 나오는 부분 끝-->
 
@@ -90,13 +173,14 @@
 
     <footer>
         <!--Copyright 부분-->
-
     </footer>
     <!--Copyright 부분 끝-->
 
     <button class="btn dark-mode-btn"><i class="fa-solid fa-moon"></i> 다크모드</button>
     <button class="btn up-btn"><i class="fa-solid fa-arrow-up"></i></button>
-    <script src="js/app.js"></script>
+    
+    <script src="js/random-book.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
