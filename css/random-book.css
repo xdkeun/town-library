@@ -1,0 +1,61 @@
+.side-bar {
+    flex-basis: 15%;
+    /* background-color: blue; */
+}
+
+.random-book {
+    width: 300px;
+    height: 800px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+}
+
+.random-book:hover {
+    height: 900px;
+}
+
+.random-book img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.random-book .random-book-btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    font-size: 20px;
+}
+
+.random-book:hover .random-book-btn {
+    opacity: 1;
+    margin: 15px;
+}
+
+.random-book .random-book-btn:hover {
+    font-size: 22px;
+}
+
+.random-book .random-book-btn:active {
+    font-size: 24px;
+}
+
+.random-book-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.random-book-title {
+    margin-bottom: 5px;
+    text-align: center;
+}

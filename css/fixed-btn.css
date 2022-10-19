@@ -1,0 +1,17 @@
+.fixed-btn {
+    height: 50px;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 10px;
+    font-size: 25px;
+}
+
+.dark-mode-btn {
+    width: 150px;
+    right: 65px;
+}
+
+.down-btn {
+    width: 50px;
+    right: 10px;
+}

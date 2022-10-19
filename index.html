@@ -6,18 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" size="16x16">
-    <script src="https://kit.fontawesome.com/08edd7b20e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/category-book.css">
+    <link rel="stylesheet" href="css/all-book.css">
+    <link rel="stylesheet" href="css/random-book.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/author.css">
-
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/fixed-btn.css">
+    <script src="https://kit.fontawesome.com/08edd7b20e.js" crossorigin="anonymous"></script>
     <title>Town Library</title>
 </head>
 
 <body>
-
     <nav>
-        <!--최상단바-->
         <div class="nav-left">
             <a href="#" onclick="window.location.reload()"><img src="images/logo.png"></a>
         </div>
@@ -29,203 +32,46 @@
         </div>
     </nav>
 
+    <section class="main-content">
+        <div class="all-book">
 
-    <!--최상단바 끝-->
-    <section class="random-book-category-wrapper">
-        <div class="random-book-category">
-            <button class="category-btn economy"><i class="fa-solid fa-won-sign"></i> 경제 관련 도서</button>
-            <button class="category-btn stock"><i class="fa-solid fa-arrow-trend-up"></i> 주식 관련 도서</button>
-            <button class="category-btn love"><i class="fa-solid fa-heart"></i> 사랑 관련 도서</button>
-            <button class="category-btn math"><i class="fa-solid fa-square-root-variable"></i> 수학 관련 도서</button>
-            <button class="category-btn react"><i class="fa-brands fa-react"></i> 리액트 관련 도서</button>
-        </div>
-    </section>
-
-
-    <section class="random-book-wrapper">
-        <div class="random-book">
-            <img src="#" class="random-book-img">
-            <div class="random-book-info">
-                <h3 class="book-title"></h3>
-                <p class="book-author"></p>
-                <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
-                <div class="modal hidden">
-                    <div class="modal-overlay"></div>
-                    <div class="modal-content">
-                        <img src="#" class="modal-book-img">
-                        <div class="modal-book-wrapper">
-                            <div class="modal-book-title"></div>
-                            <div class="modal-book-price"></div>
-                            <div class="modal-book-story"></div>
-                            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn
-                                    More</a></button>
-                            <i class="fa-solid fa-x modal-close"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <div class="random-book">
-            <img src="#" class="random-book-img">
-            <div class="random-book-info">
-                <h3 class="book-title"></h3>
-                <p class="book-author"></p>
-                <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
-                <div class="modal hidden">
-                    <div class="modal-overlay"></div>
-                    <div class="modal-content">
-                        <img src="#" class="modal-book-img">
-                        <div class="modal-book-wrapper">
-                            <div class="modal-book-title"></div>
-                            <div class="modal-book-price"></div>
-                            <div class="modal-book-story"></div>
-                            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn
-                                    More</a></button>
-                            <i class="fa-solid fa-x modal-close"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="random-book">
-            <img src="#" class="random-book-img">
-            <div class="random-book-info">
-                <h3 class="book-title"></h3>
-                <p class="book-author"></p>
-                <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
-                <div class="modal hidden">
-                    <div class="modal-overlay"></div>
-                    <div class="modal-content">
-                        <img src="#" class="modal-book-img">
-                        <div class="modal-book-wrapper">
-                            <div class="modal-book-title"></div>
-                            <div class="modal-book-price"></div>
-                            <div class="modal-book-story"></div>
-                            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn
-                                    More</a></button>
-                            <i class="fa-solid fa-x modal-close"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="random-book">
-            <img src="#" class="random-book-img">
-            <div class="random-book-info">
-                <h3 class="book-title"></h3>
-                <p class="book-author"></p>
-                <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
-                <div class="modal hidden">
-                    <div class="modal-overlay"></div>
-                    <div class="modal-content">
-                        <img src="#" class="modal-book-img">
-                        <div class="modal-book-wrapper">
-                            <div class="modal-book-title"></div>
-                            <div class="modal-book-price"></div>
-                            <div class="modal-book-story"></div>
-                            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn
-                                    More</a></button>
-                            <i class="fa-solid fa-x modal-close"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="random-book">
-            <img src="#" class="random-book-img">
-            <div class="random-book-info">
-                <h3 class="book-title"></h3>
-                <p class="book-author"></p>
-                <a href="#" class="modal-open"><button class="btn-hover more-color">More</button></a>
-                <div class="modal hidden">
-                    <div class="modal-overlay"></div>
-                    <div class="modal-content">
-                        <img src="#" class="modal-book-img">
-                        <div class="modal-book-wrapper">
-                            <div class="modal-book-title"></div>
-                            <div class="modal-book-price"></div>
-                            <div class="modal-book-story"></div>
-                            <button class="btn-hover more-color learn-more-btn"><a href="#" class="more-url">Learn
-                                    More</a></button>
-                            <i class="fa-solid fa-x modal-close"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="random-book side-bar">
+
         </div>
 
     </section>
-    <main>
-        <!--메인 자료-->
 
-
-        <div class="book-list">
-            <!--책 내용 나오는 부분-->
-
+    <section class="author">
+        <div class="author-title">
+            <h2 class="author-title-text">저자 소개</h2>
+            <div class="author-button">
+                <button>해외 저자</button>
+                <button>국내 저자</button>
+            </div>
         </div>
-        <!--책 내용 나오는 부분 끝-->
-
-        <section class="author">
-            <div class="author-title">
-                <h2 class="author-title-text">저자 소개</h2>
-                <div class="author-button">
-                    <button class="btn-hover more-color">해외 저자</button>
-                    <button class="btn-hover more-color">국내 저자</button>
+        <div class="content">
+            <div class="box">
+                <div class="img-box">
+                    <img src="images/author1.jpg">
+                </div>
+                <div class="author-text">
+                    <h3>조앤 K 롤링</h3>
                 </div>
             </div>
-            <div class="content">
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/author1.jpg">
-                    </div>
-                    <div class="author-text">
-                        <h3>조앤 K 롤링</h3>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/author2.jpg">
-                    </div>
-                    <div class="author-text">
-                        <h3>제임스 패터슨</h3>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/author3.jpg">
-                    </div>
-                    <div class="author-text">
-                        <h3>제프 키니</h3>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/author4.jpg">
-                    </div>
-                    <div class="author-text">
-                        <h3>댄 브라운</h3>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!--작가 부분 끝-->
-
-    </main>
-    <!--메인 자료 끝-->
-
+        </div>
+    </section>
+    
     <footer class="copyright">
         <a href="https://github.com/dragonkeun">Copyright 2022 YK. <i class="fa-brands fa-github"></i></a>
     </footer>
 
-    <button class="btn dark-mode-btn"><i class="fa-solid fa-moon"></i> 다크모드</button>
-    <button class="btn down-btn"><i class="fa-solid fa-arrow-down"></i></button>
-
+    <button class="fixed-btn dark-mode-btn"><i class="fa-solid fa-moon"></i> 다크모드</button>
+    <button class="fixed-btn down-btn"><i class="fa-solid fa-arrow-down"></i></button>
+    <script src="js/root.js"></script>
+    <script src="js/all-book.js"></script>
     <script src="js/random-book.js"></script>
-    <script src="js/modal.js"></script>
 </body>
 
 </html>
