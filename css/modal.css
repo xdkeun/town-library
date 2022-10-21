@@ -27,6 +27,27 @@
     width: 50%;
 }
 
+.modal-content-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-left-content {
+    flex-basis: 30%;
+}
+
+.modal-right-content {
+    flex-basis: 70%;
+}
+
+.modal-content-bottom-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .hidden {
     display: none;
 }
