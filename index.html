@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/category-book.css">
     <link rel="stylesheet" href="css/all-book.css">
     <link rel="stylesheet" href="css/random-book.css">
+    <link rel="stylesheet" href="css/search-book.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/author.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -25,10 +26,38 @@
             <a href="#" onclick="window.location.reload()"><img src="images/logo.png"></a>
         </div>
         <div class="nav-right">
-            <a href="#" class="nav-animation">도서 검색</a>
+            <a href="#" class="nav-animation search-book" id="search-book-modal-open">전체 도서</a>
+            <div class="search-book-modal hidden">
+            <div class="search-book-modal-overlay"></div>
+        
+            <div class="modal-content">
+                <input type="text" id="search" placeholder="Search" onChange="search-book()">
+            <div class="modal-content-info">
+                <div class="modal-left-content">
+                    <img src="${data.documents[1].thumbnail}">
+                    <div class="changegogo">${data.documents[1].title}</div>
+                </div>
+                <div class="modal-right-content">
+                    <div class="search-title"><button class="modal-button-design">제목</button>${data.documents[1].title}</div>
+                    <div><button class="modal-button-design">저자</button>${data.documents[1].authors}</div>
+                    <div><button class="modal-button-design">출판사</button>${data.documents[1].publisher}</div>
+                    <div><button class="modal-button-design">가격</button>${data.documents[1].price}원</div>
+                </div>
+            </div>
+            <div class="modal-content-bottom-info">
+                <div class="modal-content-bottom-story">${data.documents[1].contents}</div>
+                <div class="modal-content-bottom-button">
+                <div class="modal-content-bottom-flex">
+                <button class="modal-more-button"><a href="${data.documents[1].url}">더 보기</a></button>
+                <button class="search-book-modal-close-button">X</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
             <a href="#" class="nav-animation">카테고리별 도서</a>
             <a href="#" class="nav-animation">전체 도서</a>
-            <a href="#" class="nav-animation">저자 소개</a>
+            <a href="#author-table" class="nav-animation">저자 소개</a>
         </div>
     </nav>
 
@@ -45,7 +74,7 @@
 
     <section class="author">
         <div class="author-title">
-            <h2 class="author-title-text">저자 소개</h2>
+            <h2 class="author-title-text" id="author-table">저자 소개</h2>
             <div class="author-button">
                 <button>해외 저자</button>
                 <button>국내 저자</button>
@@ -72,6 +101,7 @@
     <script src="js/root.js"></script>
     <script src="js/all-book.js"></script>
     <script src="js/random-book.js"></script>
+    <script src="js/search-book.js"></script>
 </body>
 
 </html>
