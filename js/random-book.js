@@ -46,23 +46,30 @@ function randomBookFunc() {
             </div>
             `;
 
-            const randomBookModalOpenButton = document.querySelector("#random-book-modal-open");
-            const randomBookModal = document.querySelector(".random-book-modal");
-            const randomBookModalOverlay = document.querySelector(".random-book-modal-overlay");
-            const randomBookModalCloseButton = document.querySelector(".random-book-modal-close-button");
-      
-            const randomBookOpenModal = () => {
-              randomBookModal.classList.remove("hidden");
-            };
-            const randomBookCloseModal = () => {
-              randomBookModal.classList.add("hidden");
-            };
+      const randomBookModalOpenButton = document.querySelector(
+        "#random-book-modal-open"
+      );
+      const randomBookModal = document.querySelector(".random-book-modal");
+      const randomBookModalOverlay = document.querySelector(
+        ".random-book-modal-overlay"
+      );
+      const randomBookModalCloseButton = document.querySelector(
+        ".random-book-modal-close-button"
+      );
 
-            randomBookModalOpenButton.addEventListener("click", randomBookOpenModal);
-            randomBookModalCloseButton.addEventListener("click", randomBookCloseModal);
-            randomBookModalOverlay.addEventListener("click", randomBookCloseModal);
+      const randomBookOpenModal = () => {
+        randomBookModal.classList.remove("hidden");
+      };
+      const randomBookCloseModal = () => {
+        randomBookModal.classList.add("hidden");
+      };
 
-
+      randomBookModalOpenButton.addEventListener("click", randomBookOpenModal);
+      randomBookModalCloseButton.addEventListener(
+        "click",
+        randomBookCloseModal
+      );
+      randomBookModalOverlay.addEventListener("click", randomBookCloseModal);
     });
 }
 randomBookFunc();
