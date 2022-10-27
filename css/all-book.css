@@ -1,7 +1,9 @@
 .all-book {
-    flex-basis: 85%;
+    flex-basis: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    grid-gap: 20px;
 }
 
 .all-book .all-book-box {
@@ -75,7 +77,6 @@ h5 {
 
 .main-content {
     display: flex;
-    height: 2000px;
 }
 
 

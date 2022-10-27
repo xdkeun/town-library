@@ -35,7 +35,7 @@ function randomBookFunc() {
                     <div class="modal-content-bottom-story">${data.documents[randomNumber50].contents}</div>
                     <div class="modal-content-bottom-button">
                     <div class="modal-content-bottom-flex">
-                    <button class="modal-more-button"><a href="${data.documents[randomNumber50].url}">더 보기</a></button>
+                    <button class="modal-more-button"><a target="_blank" href="${data.documents[randomNumber50].url}">더 보기</a></button>
                     <button class="random-book-modal-close-button">X</button>
                     </div>
                     </div>

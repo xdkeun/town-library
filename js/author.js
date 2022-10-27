@@ -5,7 +5,7 @@ const authorContent = document.querySelector(".author .content");
 function koreanAuthorFunc() {
   // 국내 저자 테이블
   authorContent.innerHTML = `
-  <a href="https://namu.wiki/w/%EA%B9%80%EC%A7%84%EB%AA%85">
+  <a href="https://namu.wiki/w/%EA%B9%80%EC%A7%84%EB%AA%85" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-1.png">
@@ -18,7 +18,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://namu.wiki/w/%EC%8B%A0%EA%B2%BD%EC%88%99">
+<a href="https://namu.wiki/w/%EC%8B%A0%EA%B2%BD%EC%88%99" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-2.png">
@@ -32,7 +32,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://namu.wiki/w/%EC%A1%B0%EC%A0%95%EB%9E%98(%EC%86%8C%EC%84%A4%EA%B0%80)">
+<a href="https://namu.wiki/w/%EC%A1%B0%EC%A0%95%EB%9E%98(%EC%86%8C%EC%84%A4%EA%B0%80)" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-3.png">
@@ -45,7 +45,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://namu.wiki/w/%EC%A0%95%EC%9D%80%EA%B6%90">
+<a href="https://namu.wiki/w/%EC%A0%95%EC%9D%80%EA%B6%90" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-4.png">
@@ -58,7 +58,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://namu.wiki/w/%ED%99%A9%EC%A0%95%EC%9D%80">
+<a href="https://namu.wiki/w/%ED%99%A9%EC%A0%95%EC%9D%80" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-5.png">
@@ -71,7 +71,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://namu.wiki/w/%EC%B5%9C%EC%9D%B8%ED%9B%88">
+<a href="https://namu.wiki/w/%EC%B5%9C%EC%9D%B8%ED%9B%88" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-6.png">
@@ -85,7 +85,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://namu.wiki/w/%ED%95%9C%EA%B0%95(%EC%86%8C%EC%84%A4%EA%B0%80)">
+<a href="https://namu.wiki/w/%ED%95%9C%EA%B0%95(%EC%86%8C%EC%84%A4%EA%B0%80)" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-7.png">
@@ -99,7 +99,7 @@ function koreanAuthorFunc() {
     </div>
 </a>
 
-<a href="https://thewiki.kr/w/%EC%9D%B4%EA%B8%B0%EC%A3%BC(%EC%9E%91%EA%B0%80)">
+<a href="https://thewiki.kr/w/%EC%9D%B4%EA%B8%B0%EC%A3%BC(%EC%9E%91%EA%B0%80)" target="_blank">
     <div class="author-box">
         <div class="imgBx">
             <img src="images/korean-author-8.png">

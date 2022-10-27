@@ -21,7 +21,7 @@ function searchBookFunc() {
       searchBookPublisher.innerHTML = `<button class="modal-button-design">출판사</button>${data.documents[0].publisher}`;
       searchBookPrice.innerHTML = `<button class="modal-button-design">가격</button>${data.documents[0].price}`;
       searchBookStory.innerHTML = `${data.documents[0].contents}`;
-      searchBookUrl.innerHTML = `<a href="${data.documents[0].url}">더 보기</a>`;
+      searchBookUrl.innerHTML = `<a target="_blank" href="${data.documents[0].url}">더 보기</a>`;
     });
 }
 

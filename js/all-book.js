@@ -52,7 +52,7 @@ function allBookFunc() {
                               }</div>
                               <div class="modal-content-bottom-button">
                               <div class="modal-content-bottom-flex">
-                              <button class="modal-more-button"><a href="${
+                              <button class="modal-more-button"><a target="_blank" href="${
                                 data.documents[randomNumber30].url
                               }">더 보기</a></button>
                               <button class="close-button">X</button>
@@ -109,7 +109,7 @@ function allBookFunc() {
                               }</div>
                               <div class="modal-content-bottom-button">
                               <div class="modal-content-bottom-flex">
-                              <button class="modal-more-button"><a href="${
+                              <button class="modal-more-button"><a target="_blank" href="${
                                 data.documents[randomNumber30 + 1].url
                               }">더 보기</a></button>
                               <button class="close-button">X</button>
@@ -166,7 +166,7 @@ function allBookFunc() {
                               }</div>
                               <div class="modal-content-bottom-button">
                               <div class="modal-content-bottom-flex">
-                              <button class="modal-more-button"><a href="${
+                              <button class="modal-more-button"><a target="_blank" href="${
                                 data.documents[randomNumber30 + 2].url
                               }">더 보기</a></button>
                               <button class="close-button">X</button>
@@ -223,7 +223,7 @@ function allBookFunc() {
                               }</div>
                               <div class="modal-content-bottom-button">
                               <div class="modal-content-bottom-flex">
-                              <button class="modal-more-button"><a href="${
+                              <button class="modal-more-button"><a target="_blank" href="${
                                 data.documents[randomNumber30 + 3].url
                               }">더 보기</a></button>
                               <button class="close-button">X</button>
@@ -280,7 +280,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 4].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -335,7 +335,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 5].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -390,7 +390,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 6].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -445,7 +445,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 7].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -500,7 +500,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 8].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -555,7 +555,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 9].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -610,7 +610,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 10].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -665,7 +665,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 11].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -720,7 +720,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 12].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -775,7 +775,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 13].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -830,7 +830,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 14].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
@@ -885,7 +885,7 @@ function allBookFunc() {
                             }</div>
                             <div class="modal-content-bottom-button">
                             <div class="modal-content-bottom-flex">
-                            <button class="modal-more-button"><a href="${
+                            <button class="modal-more-button"><a target="_blank" href="${
                               data.documents[randomNumber30 + 15].url
                             }">더 보기</a></button>
                             <button class="close-button">X</button>
