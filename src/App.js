@@ -1,6 +1,13 @@
+import React from 'react';
+import MainPage from "./pages/MainPage";
+import LoginPage from './pages/LoginPage';
+
 function App() {
   return (
-    <div></div>
+    <div>
+      {/* <MainPage/> */}
+      <LoginPage/>
+    </div>
   );
 }
 
