@@ -47,6 +47,9 @@ function Header() {
   const goToLogin = () => {
     navigate("/login");
   };
+  const goToSignup = () => {
+    navigate("/signup")
+  }
   return (
     <HeaderWrapper>
       <HeaderLeft>
@@ -66,7 +69,7 @@ function Header() {
       </HeaderLeft>
       <HeaderRight>
         <li onClick={goToLogin}>로그인</li>
-        <li>회원가입</li>
+        <li onClick={goToSignup}>회원가입</li>
         <li>고객센터</li>
         <li>이벤트</li>
       </HeaderRight>

@@ -64,17 +64,17 @@ function Login() {
       <LoginBoxWrapper>
         <LoginBox>
           <LoginBoxTitle>LOGIN</LoginBoxTitle>
-          <LoginBoxLabel htmlFor="id-input">Email</LoginBoxLabel>
+          <LoginBoxLabel htmlFor="email-input">Email</LoginBoxLabel>
           <LoginBoxInput
             type="text"
             name=""
-            id="id-input"
+            id="email-input"
             placeholder="Enter your email"
             onChange={(event) => {
               setEmail(event.target.value);
             }}
           />
-          <LoginBoxLabel htmlFor="password-input">PASSWORD</LoginBoxLabel>
+          <LoginBoxLabel htmlFor="password-input">Password</LoginBoxLabel>
           <LoginBoxInput
             type="password"
             name=""
