@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -38,13 +39,18 @@ const HeaderRight = styled.ul`
   gap: 10px;
 `;
 
-
-
 function Header() {
+  const navigate = useNavigate();
+  const goToMain = () => {
+    navigate("/")
+  };
+  const goToLogin = () => {
+    navigate("/login");
+  };
   return (
     <HeaderWrapper>
       <HeaderLeft>
-        <span>TOWN LIBRARY</span>
+        <span onClick={goToMain}>TOWN LIBRARY</span>
         <HeaderSearch>
           <HeaderSearchInput type="text" />
           <FontAwesomeIcon
@@ -59,7 +65,7 @@ function Header() {
         </HeaderSearch>
       </HeaderLeft>
       <HeaderRight>
-        <li>로그인</li>
+        <li onClick={goToLogin}>로그인</li>
         <li>회원가입</li>
         <li>고객센터</li>
         <li>이벤트</li>

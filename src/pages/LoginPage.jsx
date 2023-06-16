@@ -1,6 +1,12 @@
+import Header from "../components/Header";
 import Login from "../components/Login";
 
 function LoginPage() {
-  return <Login />;
+  return (
+    <div>
+      <Header/>
+      <Login />
+    </div>
+  );
 }
 export default LoginPage;

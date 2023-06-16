@@ -1,6 +1,8 @@
-import Header from "./Header";
+import { useState } from "react";
 import styled from "styled-components";
+import usersData from "../data/usersData";
 
+//styled-components~
 const LoginBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -9,10 +11,17 @@ const LoginBoxWrapper = styled.div`
 const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 40vw;
-  padding: 5vw 10vw;
+  padding: 1vw 5vw 3vw 5vw;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 20px;
+`;
+
+const LoginBoxTitle = styled.h4`
+  font-size: 30px;
+  text-align: center;
+  font-weight: 600;
 `;
 
 const LoginBoxLabel = styled.label`
@@ -30,25 +39,40 @@ const LoginBoxInput = styled.input`
 const LoginButton = styled.button`
   all: unset;
   background-color: cornflowerblue;
+  color: white;
+  font-size: 20px;
   width: 200px;
-  height: 30px;
+  height: 50px;
   border-radius: 30px;
   text-align: center;
   margin: 0 auto;
 `;
+//~styled-components
+
 function Login() {
+  const [email, setEmail] = useState("");
+  const [loginValidation, setLoginValidation] = useState(false);
+  const loginValidationCheck = () => {
+    const emailCheck = usersData.some((userData) => {
+      return email === userData.email;
+    });
+    setLoginValidation(emailCheck);
+    console.log(loginValidation);
+  };
   return (
     <div>
-      <Header />
       <LoginBoxWrapper>
         <LoginBox>
-          <h4>LOGIN</h4>
-          <LoginBoxLabel htmlFor="id-input">ID</LoginBoxLabel>
+          <LoginBoxTitle>LOGIN</LoginBoxTitle>
+          <LoginBoxLabel htmlFor="id-input">Email</LoginBoxLabel>
           <LoginBoxInput
             type="text"
             name=""
             id="id-input"
-            placeholder="Enter your id"
+            placeholder="Enter your email"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
           />
           <LoginBoxLabel htmlFor="password-input">PASSWORD</LoginBoxLabel>
           <LoginBoxInput
@@ -57,7 +81,7 @@ function Login() {
             id="password-input"
             placeholder="Enter your password"
           />
-          <LoginButton>LOGIN</LoginButton>
+          <LoginButton onClick={loginValidationCheck}>LOGIN</LoginButton>
         </LoginBox>
       </LoginBoxWrapper>
     </div>
