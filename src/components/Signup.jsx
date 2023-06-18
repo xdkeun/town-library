@@ -1,6 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const SignupBoxWrapper = styled.div`
   display: flex;
@@ -27,6 +29,7 @@ const SignupBoxTitle = styled.h4`
 const SignupBoxLabel = styled.label`
   font-size: 20px;
   margin-bottom: 5px;
+  margin-top: 15px;
 `;
 
 const SignupBoxInput = styled.input`
@@ -34,7 +37,6 @@ const SignupBoxInput = styled.input`
   width: 80%;
   height: 30px;
   padding: 5px;
-  margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 `;
@@ -69,10 +71,49 @@ const SignupButton = styled.button`
   height: 50px;
   border-radius: 30px;
   text-align: center;
-  margin: 0 auto;
+  margin: 15px auto;
 `;
 
+const ValidationFalseText = styled.span`
+  color:red;
+  margin:5px 0 0 5px;
+`
+
 function Signup() {
+  const [passwordToggle, setPasswordToggle] = useState(true);
+  const [passwordType, setPasswordType] = useState("password");
+  const passwordToggleButtonOnClick = () => {
+    if (passwordToggle) {
+      setPasswordToggle(false);
+      setPasswordType("text");
+    } else {
+      setPasswordToggle(true);
+      setPasswordType("password");
+    }
+  };
+  const [repasswordToggle, setRepasswordToggle] = useState(true);
+  const [repasswordType, setRepasswordType] = useState("password");
+  const [email, setEmail] = useState("");
+  const [emailValidation, setEmailValidation] = useState(true);
+  const emailChangeHandler = (event) => {
+    setEmail(event.target.value);
+    setEmailValidation(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)); //이메일
+  };
+  const repasswordToggleButtonOnClick = () => {
+    if (repasswordToggle) {
+      setRepasswordToggle(false);
+      setRepasswordType("text");
+    } else {
+      setRepasswordToggle(true);
+      setRepasswordType("password");
+    }
+  };
+  const navigate = useNavigate();
+  const validationCheck = () => {
+    if(emailValidation && email.length > 0){
+      navigate("/")
+    }
+  };
   return (
     <SignupBoxWrapper>
       <SignupBox>
@@ -82,36 +123,48 @@ function Signup() {
           type="email"
           name=""
           id="email-input"
-          placeholder="영문, 숫자 6~12자"
+          onChange={emailChangeHandler}
         />
+        {emailValidation ? "" : <ValidationFalseText>이메일을 올바르게 입력하세요</ValidationFalseText>}
         <SignupBoxLabel htmlFor="password-input">Password</SignupBoxLabel>
         <PasswordInputWrapper>
           <PasswordInput
-            type="password"
+            type={passwordType}
             name=""
             id="password-input"
-            placeholder="영문, 숫자, 특수문자 10~15자"
+            placeholder="비밀번호 입력"
           />
-          <PasswordToggleButton>
-            <FontAwesomeIcon icon={faEye} />
+          <PasswordToggleButton onClick={passwordToggleButtonOnClick}>
+            {passwordToggle ? (
+              <FontAwesomeIcon icon={faEye} />
+            ) : (
+              <FontAwesomeIcon icon={faEyeSlash} />
+            )}
           </PasswordToggleButton>
-          {/* <FontAwesomeIcon icon={faEyeSlash} /> 눈 감기는 아이콘*/}
         </PasswordInputWrapper>
         <PasswordInputWrapper>
           <SignupBoxInput
-            type="password"
+            type={repasswordType}
             name=""
-            id="password-input"
+            id="repassword-input"
             placeholder="비밀번호 재입력"
           />
-          <PasswordToggleButton>
-            <FontAwesomeIcon icon={faEye} />
+          <PasswordToggleButton onClick={repasswordToggleButtonOnClick}>
+            {repasswordToggle ? (
+              <FontAwesomeIcon icon={faEye} />
+            ) : (
+              <FontAwesomeIcon icon={faEyeSlash} />
+            )}
           </PasswordToggleButton>
         </PasswordInputWrapper>
         <SignupBoxLabel htmlFor="name-input">Name</SignupBoxLabel>
-        <SignupBoxInput type="text" name="" id="name-input" />
+        <SignupBoxInput
+          type="text"
+          name=""
+          id="name-input"
+        />
         {/* 이용약관동의 구현할 것 */}
-        <SignupButton>Sign Up</SignupButton>
+        <SignupButton onClick={validationCheck}>Sign Up</SignupButton>
       </SignupBox>
     </SignupBoxWrapper>
   );
