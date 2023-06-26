@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import usersData from "../data/usersData";
+import { useNavigate } from "react-router-dom";
 
 //styled-components~
 const LoginBoxWrapper = styled.div`
@@ -50,14 +51,21 @@ const LoginButton = styled.button`
 //~styled-components
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [loginValidation, setLoginValidation] = useState(false);
+  const emailChangeHandler = (event) => {
+    const emailInput = event.target.value;
+    setEmail(emailInput)
+  }
   const loginValidationCheck = () => {
-    const emailCheck = usersData.some((userData) => {
-      return email === userData.email;
-    });
-    setLoginValidation(emailCheck);
-    console.log(loginValidation);
+    if (email && usersData.some((userData) => email === userData.email)) {
+      setLoginValidation(true);
+      navigate("/");
+    } else {
+      setLoginValidation(false);
+      alert("로그인에 실패했습니다.")
+    }
   };
   return (
     <div>
@@ -70,9 +78,7 @@ function Login() {
             name=""
             id="email-input"
             placeholder="Enter your email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
+            onChange={emailChangeHandler}
           />
           <LoginBoxLabel htmlFor="password-input">Password</LoginBoxLabel>
           <LoginBoxInput

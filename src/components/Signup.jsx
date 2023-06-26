@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -75,9 +75,9 @@ const SignupButton = styled.button`
 `;
 
 const ValidationFalseText = styled.span`
-  color:red;
-  margin:5px 0 0 5px;
-`
+  color: red;
+  margin: 5px 0 0 5px;
+`;
 
 function Signup() {
   const [passwordToggle, setPasswordToggle] = useState(true);
@@ -95,10 +95,45 @@ function Signup() {
   const [repasswordType, setRepasswordType] = useState("password");
   const [email, setEmail] = useState("");
   const [emailValidation, setEmailValidation] = useState(true);
+  const [password, setPassword] = useState("");
+  const [repassword, setRepassword] = useState("");
+  const [passwordValidation, setPasswordValidation] = useState(true);
+  const [name, setName] = useState("")
+  const [nameValidation, setNameValidation] = useState(true);
   const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
+    const emailInput = event.target.value;
+    setEmail(emailInput);
     setEmailValidation(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)); //이메일
   };
+  const passwordChangeHandler = (event) => {
+    const passwordInput = event.target.value;
+    setPassword(passwordInput);
+  };
+  const repasswordChangeHandler = (event) => {
+    const repasswordInput = event.target.value;
+    setRepassword(repasswordInput);
+  };
+
+  useEffect(() => {
+    if (password === repassword) {
+      setPasswordValidation(true);
+    } else {
+      setPasswordValidation(false);
+    }
+  }, [password, repassword]);
+  
+  const nameChangeHandler = (event) => {
+    const nameInput = event.target.value;
+    setName(nameInput)
+  }
+  useEffect(()=>{
+    if(name === "") {
+      setNameValidation(false);
+    }
+    else {
+      setNameValidation(true);
+    }
+  }, [name]);
   const repasswordToggleButtonOnClick = () => {
     if (repasswordToggle) {
       setRepasswordToggle(false);
@@ -110,8 +145,11 @@ function Signup() {
   };
   const navigate = useNavigate();
   const validationCheck = () => {
-    if(emailValidation && email.length > 0){
-      navigate("/")
+    if (emailValidation && email.length > 0 && passwordValidation && password.length > 0 && name.length > 0 && nameValidation) {
+      navigate("/");
+    }
+    else {
+      alert("회원가입에 실패했습니다.")
     }
   };
   return (
@@ -125,7 +163,13 @@ function Signup() {
           id="email-input"
           onChange={emailChangeHandler}
         />
-        {emailValidation ? "" : <ValidationFalseText>이메일을 올바르게 입력하세요</ValidationFalseText>}
+        {emailValidation ? (
+          ""
+        ) : (
+          <ValidationFalseText>
+            이메일을 올바르게 입력하세요
+          </ValidationFalseText>
+        )}
         <SignupBoxLabel htmlFor="password-input">Password</SignupBoxLabel>
         <PasswordInputWrapper>
           <PasswordInput
@@ -133,6 +177,7 @@ function Signup() {
             name=""
             id="password-input"
             placeholder="비밀번호 입력"
+            onChange={passwordChangeHandler}
           />
           <PasswordToggleButton onClick={passwordToggleButtonOnClick}>
             {passwordToggle ? (
@@ -148,6 +193,7 @@ function Signup() {
             name=""
             id="repassword-input"
             placeholder="비밀번호 재입력"
+            onChange={repasswordChangeHandler}
           />
           <PasswordToggleButton onClick={repasswordToggleButtonOnClick}>
             {repasswordToggle ? (
@@ -157,12 +203,15 @@ function Signup() {
             )}
           </PasswordToggleButton>
         </PasswordInputWrapper>
+        {passwordValidation ? (
+          ""
+        ) : (
+          <ValidationFalseText>
+            비밀번호가 일치하지 않습니다.
+          </ValidationFalseText>
+        )}
         <SignupBoxLabel htmlFor="name-input">Name</SignupBoxLabel>
-        <SignupBoxInput
-          type="text"
-          name=""
-          id="name-input"
-        />
+        <SignupBoxInput type="text" name="" id="name-input" onChange={nameChangeHandler}/>
         {/* 이용약관동의 구현할 것 */}
         <SignupButton onClick={validationCheck}>Sign Up</SignupButton>
       </SignupBox>
