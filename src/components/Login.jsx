@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import usersData from "../data/usersData";
+import UsersData from "../data/UsersData";
 import { useNavigate } from "react-router-dom";
 
 //styled-components~
@@ -59,7 +59,7 @@ function Login() {
     setEmail(emailInput)
   }
   const loginValidationCheck = () => {
-    if (email && usersData.some((userData) => email === userData.email)) {
+    if (email && UsersData.some((userData) => email === userData.email)) {
       setLoginValidation(true);
       navigate("/");
     } else {

@@ -1,4 +1,4 @@
-const usersData = [];
+const UsersData = [];
 for (let i = 1; i <= 10; i++) {
   const user = {
     id: i,
@@ -6,6 +6,6 @@ for (let i = 1; i <= 10; i++) {
     password: `password${i}`,
     name: `User ${i}`,
   };
-  usersData.push(user);
+  UsersData.push(user);
 }
-export default usersData;
+export default UsersData;

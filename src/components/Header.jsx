@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -42,20 +43,25 @@ const HeaderRight = styled.ul`
 function Header() {
   const navigate = useNavigate();
   const goToMain = () => {
-    navigate("/")
+    navigate("/");
   };
   const goToLogin = () => {
     navigate("/login");
   };
   const goToSignup = () => {
-    navigate("/signup")
-  }
+    navigate("/signup");
+  };
+  const [search, setSearch] = useState("");
+  const searchChangeHandler = (event) => {
+    const searchInput = event.target.value;
+    setSearch(searchInput);
+  };
   return (
     <HeaderWrapper>
       <HeaderLeft>
         <span onClick={goToMain}>TOWN LIBRARY</span>
         <HeaderSearch>
-          <HeaderSearchInput type="text" />
+          <HeaderSearchInput type="text" onChange={searchChangeHandler} />
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
             style={{
