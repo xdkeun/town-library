@@ -1,5 +1,6 @@
 import BooksData from "../data/BooksData";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 const BooksWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -7,11 +8,13 @@ const BooksWrapper = styled.section`
   position:relative;
 `;
 
-const Book = styled.article`
+const Book = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 200px;
   height: 380px;
+  text-decoration:none;
+  color:black;
 `;
 const BookTitle = styled.p`
   font-size: 16px;
@@ -36,7 +39,7 @@ function Books(props) {
   return (
     <BooksWrapper>
       {books.map((book) => (
-        <Book key={book.isbn}>
+        <Book key={book.isbn} to={`/detail/${book.title}`}>
           <img src={book.thumbnail} alt="책 표지" />
           <BookTitle>{book.title}</BookTitle>
           <BookAuthors>{book.authors}</BookAuthors>
