@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import AllBooksData from "../data/AllBooksData";
+import styled from "styled-components";
+import Books from "./Books";
+import Title from "./Title";
+import Category from "./Category";
+const MainWrapper = styled.main`
+  padding: 1% 3%;
+`;
 
 function Main() {
-  const books = AllBooksData("가가","title");
 
   return (
-    <div>
-      {books.map((book, index)=>(
-      <div>
-        {book.title}
-        </div>
-      ))}
-    </div>
+    <MainWrapper>
+      <Title text="최신 도서"/>
+      <Books query="이" sort="latest" size="5" target="title"/>
+      <Category/>
+    </MainWrapper>
   );
 }
 

@@ -11,6 +11,7 @@ const HeaderWrapper = styled.header`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 5px 15px;
+  box-sizing:border-box;
 `;
 
 const HeaderLeft = styled.div`

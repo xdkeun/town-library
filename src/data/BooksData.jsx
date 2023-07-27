@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 const REST_API_KEY = "109678222bb79c3a7dca9b9107d78c37";
-function AllBooksData(query, target) {
+function BooksData(query, sort, page, size, target) {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -10,13 +10,14 @@ function AllBooksData(query, target) {
         headers: { Authorization: `KakaoAK ${REST_API_KEY}` },
         params: {
           query: query,
+          sort: sort,
+          page: page,
+          size: size,
           target: target,
-          size: 25,
         },
       })
       .then((response) => {
         // API 요청에 대한 처리
-        // setData(JSON.stringify(response));
         setData(response.data.documents)
       })
       .catch((error) => {
@@ -27,4 +28,4 @@ function AllBooksData(query, target) {
   return data;
 }
 
-export default AllBooksData;
+export default BooksData;
