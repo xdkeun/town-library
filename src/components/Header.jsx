@@ -52,16 +52,22 @@ function Header() {
   const goToSignup = () => {
     navigate("/signup");
   };
+  const goToSearch = () => {
+    navigate(`/search/${search}`);
+  };
   const [search, setSearch] = useState("");
   const searchChangeHandler = (event) => {
     const searchInput = event.target.value;
     setSearch(searchInput);
   };
+  const searchKeyDownHandler = (event) => {
+    if(event.key == 'Enter') goToSearch()
+  }
   return (
     <HeaderWrapper>
       <HeaderLeft>
         <span onClick={goToMain}>TOWN LIBRARY</span>
-        <HeaderSearch>
+        <HeaderSearch onKeyDown={searchKeyDownHandler}>
           <HeaderSearchInput type="text" onChange={searchChangeHandler} />
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
@@ -71,6 +77,7 @@ function Header() {
               right: "15px",
               color: "rgba(0,0,0,0.8)",
             }}
+            onClick={goToSearch}
           />
         </HeaderSearch>
       </HeaderLeft>

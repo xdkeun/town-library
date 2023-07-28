@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import BooksData from "../data/BooksData";
 import styled from "styled-components";
 import Header from "../components/Header";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 function formatDate(isoDateString) {
   const date = new Date(isoDateString);
   const year = date.getFullYear();
@@ -44,13 +45,34 @@ function Detail() {
             <RowData>{book?.status}</RowData>
           </Row>
           <PriceWrapper>
+            <DiscountRate>
+              {(
+                ((book?.price - book?.sale_price) / book?.sale_price) *
+                100
+              ).toFixed(0)}
+              %
+            </DiscountRate>
             <SalePrice>{book?.sale_price}원</SalePrice>
             <Price>{book?.price}원</Price>
           </PriceWrapper>
         </DetailBox>
       </DetailWrapper>
       <DetailContents>{book?.contents}</DetailContents>
-      <BottomButton>바로 구매</BottomButton>
+      <BottomButton>
+        <BottomOption>
+          <TotalPriceText>총 상품 금액</TotalPriceText>
+          <TotalPrice>{book?.sale_price}원</TotalPrice>
+          <ItemCount>
+            <FontAwesomeIcon icon={faMinus} />
+            <Count>1</Count>
+            <FontAwesomeIcon icon={faPlus} />
+          </ItemCount>
+        </BottomOption>
+        <OrderButtonWrapper>
+          <OrderButton>장바구니</OrderButton>
+          <OrderButton>바로구매</OrderButton>
+        </OrderButtonWrapper>
+      </BottomButton>
     </>
   );
 }
@@ -87,7 +109,7 @@ const DetailTitle = styled.p`
 const Row = styled.div`
   display: flex;
   gap: 5px;
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 22px;
 `;
 
@@ -104,6 +126,13 @@ const PriceWrapper = styled.div`
   gap: 5px;
 `;
 
+const DiscountRate = styled.span`
+  font-size: 26px;
+  font-weight: 600;
+  color: green;
+  margin-right: 3px;
+`;
+
 const SalePrice = styled.span`
   font-size: 26px;
   font-weight: 600;
@@ -116,17 +145,64 @@ const Price = styled.span`
 `;
 
 const DetailContents = styled.div`
-  margin:1% 3%;
-  font-size:20px;
-  letter-spacing:1px;
-`
+  margin: 1% 3%;
+  font-size: 20px;
+  letter-spacing: 1px;
+`;
 
 const BottomButton = styled.button`
-  all:unset;
-  position:fixed;
-  bottom:0;
-  width:100%;
-  height:100px;
-  border-top:1px solid black;
-`
+  all: unset;
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const BottomOption = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 3%;
+`;
+
+const TotalPriceText = styled.p`
+  font-size: 16px;
+`;
+
+const TotalPrice = styled.p`
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 20px;
+`;
+
+const ItemCount = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 0 10px;
+  border-radius: 10px;
+`;
+
+const Count = styled.p`
+  width: 40px;
+  text-align: center;
+`;
+
+const OrderButtonWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+  padding-right: 20px;
+`;
+
+const OrderButton = styled.button`
+  all: unset;
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 500;
+`;
+
 export default Detail;
