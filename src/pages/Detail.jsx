@@ -85,6 +85,7 @@ const DetailWrapper = styled.section`
 const DetailImg = styled.img`
   width: 300px;
   height: 400px;
+  border-radius:10px;
 `;
 const DetailBox = styled.div`
   display: flex;
