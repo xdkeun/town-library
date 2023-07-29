@@ -1,11 +1,14 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BooksData from "../data/BooksData";
 import Header from "../components/Header";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 function Search() {
+  
   const { search } = useParams();
   const books = BooksData(search);
+  
   return (
     <>
       <Header />
@@ -18,15 +21,15 @@ function Search() {
             <SearchResultCount>{books.length}</SearchResultCount>
             <p>건</p>
           </SearchResultWrapper>
-          <select>
+          <SortSelect>
             <option>정확도 순</option>
             <option>최신 순</option>
             <option>할인율 순</option>
             <option>가격 높은 순</option>
             <option>가격 낮은 순</option>
-          </select>
+          </SortSelect>
         </SearchNav>
-        {books.map((book) => (
+        {books.length==0?<h3>검색된 도서가 없습니다.</h3>:books.map((book) => (
           <SearchBookArticle key={book.isbn}>
             <SearchBookImg src={book.thumbnail} alt="검색된 도서" />
             <SearchBookContents to={`/detail/${book.title}`}>
@@ -146,4 +149,9 @@ const OrderButton = styled.button`
   color: white;
 `;
 
+const SortSelect = styled.select`
+  height: 30px;
+  font-size: 16px;
+  padding: 0 5px;
+`;
 export default Search;
