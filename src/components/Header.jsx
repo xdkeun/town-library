@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 5px 15px;
-  box-sizing:border-box;
+  box-sizing: border-box;
 `;
 
 const HeaderLeft = styled.div`
@@ -55,14 +55,17 @@ function Header() {
   const goToSearch = () => {
     navigate(`/search/${search}`);
   };
+  const goToRecentBook = () => {
+    navigate("/recentbook");
+  };
   const [search, setSearch] = useState("");
   const searchChangeHandler = (event) => {
     const searchInput = event.target.value;
     setSearch(searchInput);
   };
   const searchKeyDownHandler = (event) => {
-    if(event.key == 'Enter') goToSearch()
-  }
+    if (event.key == "Enter") goToSearch();
+  };
   return (
     <HeaderWrapper>
       <HeaderLeft>
@@ -85,7 +88,7 @@ function Header() {
         <li onClick={goToLogin}>로그인</li>
         <li onClick={goToSignup}>회원가입</li>
         <li>장바구니</li>
-        <li>최근본도서</li>
+        <li onClick={goToRecentBook}>최근본도서</li>
       </HeaderRight>
     </HeaderWrapper>
   );

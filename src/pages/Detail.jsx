@@ -1,5 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+//책 상세조회 페이지
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import BooksData from "../data/BooksData";
 import styled from "styled-components";
 import Header from "../components/Header";
@@ -14,15 +15,46 @@ function formatDate(isoDateString) {
 }
 
 function Detail() {
+  //책의 제목을 가져와 책의 상세정보를 출력시켜주도록 구현
   const { title } = useParams();
   const queryBook = BooksData(title, "accuracy", 1, 1, "title");
   const book = queryBook[0];
 
+  //상세정보 페이지에서 수량을 +, - 클릭 시 수량 변경
+  const [count, setCount] = useState(1);
+  const countPlusHandler = () => {
+    if (count < 99) {
+      setCount(count + 1);
+    }
+  };
+  const countMinusHandler = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
+  //Detail 페이지에 들어올때마다 최근본도서 localStorage에 저장하도록 구현
+  const [recentBooks, setRecentBooks] = useState([]);
+  useEffect(() => {
+    // 기존의 최근본도서 목록을 localStorage에서 가져옴
+    const storedRecentBooks = JSON.parse(localStorage.getItem("recentBooks")) || [];
+
+    // 현재 책이 이미 최근본도서 목록에 있는지 확인
+    const isBookInRecent = storedRecentBooks.some((recentBook) => recentBook?.isbn === book?.isbn);
+
+    // 최근본도서 목록을 업데이트
+    if (!isBookInRecent && book) {
+      const updatedRecentBooks = [...storedRecentBooks, book];
+      localStorage.setItem("recentBooks", JSON.stringify(updatedRecentBooks));
+      setRecentBooks(updatedRecentBooks);
+    }
+  }, [book]);
+
   return (
     <>
       <Header />
-      <DetailWrapper>
-        <DetailImg src={book?.thumbnail} alt="" />
+      <DetailWrapper to={book?.url} target="_blank">
+        <DetailImg src={book?.thumbnail} alt="책 표지 사진" />
         <DetailBox>
           <DetailIsbn>{book?.isbn}</DetailIsbn>
           <DetailTitle>
@@ -52,8 +84,8 @@ function Detail() {
               ).toFixed(0)}
               %
             </DiscountRate>
-            <SalePrice>{book?.sale_price}원</SalePrice>
-            <Price>{book?.price}원</Price>
+            <SalePrice>{book?.sale_price.toLocaleString()}원</SalePrice>
+            <Price>{book?.price.toLocaleString()}원</Price>
           </PriceWrapper>
         </DetailBox>
       </DetailWrapper>
@@ -61,11 +93,13 @@ function Detail() {
       <BottomButton>
         <BottomOption>
           <TotalPriceText>총 상품 금액</TotalPriceText>
-          <TotalPrice>{book?.sale_price}원</TotalPrice>
+          <TotalPrice>
+            {(book?.sale_price * count).toLocaleString()}원
+          </TotalPrice>
           <ItemCount>
-            <FontAwesomeIcon icon={faMinus} />
-            <Count>1</Count>
-            <FontAwesomeIcon icon={faPlus} />
+            <FontAwesomeIcon icon={faMinus} onClick={countMinusHandler} />
+            <Count>{count}</Count>
+            <FontAwesomeIcon icon={faPlus} onClick={countPlusHandler} />
           </ItemCount>
         </BottomOption>
         <OrderButtonWrapper>
@@ -77,15 +111,17 @@ function Detail() {
   );
 }
 
-const DetailWrapper = styled.section`
+const DetailWrapper = styled(Link)`
   padding: 1% 3%;
   display: flex;
+  text-decoration: none;
+  color: black;
 `;
 
 const DetailImg = styled.img`
   width: 300px;
   height: 400px;
-  border-radius:10px;
+  border-radius: 10px;
 `;
 const DetailBox = styled.div`
   display: flex;
@@ -175,7 +211,7 @@ const TotalPriceText = styled.p`
 const TotalPrice = styled.p`
   font-size: 24px;
   font-weight: 600;
-  margin-right: 20px;
+  width: 120px;
 `;
 
 const ItemCount = styled.div`

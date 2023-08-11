@@ -8,7 +8,7 @@ const MainWrapper = styled.main`
 `;
 
 function Main() {
-
+  
   return (
     <MainWrapper>
       <Title text="최신 도서"/>

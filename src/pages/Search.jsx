@@ -1,3 +1,4 @@
+//책 검색 결과 페이지
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BooksData from "../data/BooksData";
@@ -5,10 +6,9 @@ import Header from "../components/Header";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 function Search() {
-  
   const { search } = useParams();
   const books = BooksData(search);
-  
+
   return (
     <>
       <Header />
@@ -29,32 +29,40 @@ function Search() {
             <option>가격 낮은 순</option>
           </SortSelect>
         </SearchNav>
-        {books.length==0?<h3>검색된 도서가 없습니다.</h3>:books.map((book) => (
-          <SearchBookArticle key={book.isbn}>
-            <SearchBookImg src={book.thumbnail} alt="검색된 도서" />
-            <SearchBookContents to={`/detail/${book.title}`}>
-              <SearchBookTitle>
-                [{book.publisher}]{book.title}
-              </SearchBookTitle>
-              <SearchBookAuthors>{book.authors}</SearchBookAuthors>
-              <SearchBookPriceWrapper>
-                <DiscountRate>
-                  {(
-                    ((book.price - book.sale_price) / book.sale_price) *
-                    100
-                  ).toFixed(0)}
-                  %
-                </DiscountRate>
-                <SearchBookSalePrice>{book.sale_price}원</SearchBookSalePrice>
-                <SearchBookPrice>{book.price}원</SearchBookPrice>
-              </SearchBookPriceWrapper>
-            </SearchBookContents>
-            <OrderButtonWrapper>
-              <OrderButton>장바구니</OrderButton>
-              <OrderButton>바로구매</OrderButton>
-            </OrderButtonWrapper>
-          </SearchBookArticle>
-        ))}
+        {books.length == 0 ? (
+          <h3>검색된 도서가 없습니다.</h3>
+        ) : (
+          books.map((book) => (
+            <SearchBookArticle key={book.isbn}>
+              <SearchBookImg src={book.thumbnail} alt="검색된 도서" />
+              <SearchBookContents to={`/detail/${book.title}`}>
+                <SearchBookTitle>
+                  [{book.publisher}]{book.title}
+                </SearchBookTitle>
+                <SearchBookAuthors>{book.authors}</SearchBookAuthors>
+                <SearchBookPriceWrapper>
+                  <DiscountRate>
+                    {(
+                      ((book.price - book.sale_price) / book.sale_price) *
+                      100
+                    ).toFixed(0)}
+                    %
+                  </DiscountRate>
+                  <SearchBookSalePrice>
+                    {book.sale_price.toLocaleString()}원
+                  </SearchBookSalePrice>
+                  <SearchBookPrice>
+                    {book.price.toLocaleString()}원
+                  </SearchBookPrice>
+                </SearchBookPriceWrapper>
+              </SearchBookContents>
+              <OrderButtonWrapper>
+                <OrderButton>장바구니</OrderButton>
+                <OrderButton>바로구매</OrderButton>
+              </OrderButtonWrapper>
+            </SearchBookArticle>
+          ))
+        )}
       </Main>
     </>
   );
