@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import RecentBook from "./pages/RecentBook";
 import Order from "./pages/Order";
+import OrderComplete from "./pages/OrderComplete";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,8 @@ function App() {
         <Route path="/search/:search" element={<Search />} />
         <Route path="/recentbook" element={<RecentBook />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/ordercomplete" element={<OrderComplete/>} />
+        
       </Routes>
     </BrowserRouter>
   );
