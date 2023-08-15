@@ -47,6 +47,7 @@ const LoginButton = styled.button`
   border-radius: 30px;
   text-align: center;
   margin: 0 auto;
+  cursor:pointer;
 `;
 //~styled-components
 

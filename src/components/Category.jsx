@@ -14,6 +14,7 @@ const CategoryButtonLi = styled.li`
   border-radius: 30px;
   padding: 10px 30px;
   font-size: 18px;
+  cursor:pointer;
 
   ${(props) =>
     props.isSelected &&

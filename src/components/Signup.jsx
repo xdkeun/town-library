@@ -50,6 +50,7 @@ const PasswordToggleButton = styled.button`
   right: 20%;
   top: 25%;
   color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 `;
 
 const PasswordInput = styled.input`
@@ -72,6 +73,7 @@ const SignupButton = styled.button`
   border-radius: 30px;
   text-align: center;
   margin: 15px auto;
+  cursor: pointer;
 `;
 
 const ValidationFalseText = styled.span`
@@ -98,7 +100,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
   const [passwordValidation, setPasswordValidation] = useState(true);
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
   const [nameValidation, setNameValidation] = useState(true);
   const emailChangeHandler = (event) => {
     const emailInput = event.target.value;
@@ -121,16 +123,15 @@ function Signup() {
       setPasswordValidation(false);
     }
   }, [password, repassword]);
-  
+
   const nameChangeHandler = (event) => {
     const nameInput = event.target.value;
-    setName(nameInput)
-  }
-  useEffect(()=>{
-    if(name === "") {
+    setName(nameInput);
+  };
+  useEffect(() => {
+    if (name === "") {
       setNameValidation(false);
-    }
-    else {
+    } else {
       setNameValidation(true);
     }
   }, [name]);
@@ -145,11 +146,17 @@ function Signup() {
   };
   const navigate = useNavigate();
   const validationCheck = () => {
-    if (emailValidation && email.length > 0 && passwordValidation && password.length > 0 && name.length > 0 && nameValidation) {
+    if (
+      emailValidation &&
+      email.length > 0 &&
+      passwordValidation &&
+      password.length > 0 &&
+      name.length > 0 &&
+      nameValidation
+    ) {
       navigate("/");
-    }
-    else {
-      alert("회원가입에 실패했습니다.")
+    } else {
+      alert("회원가입에 실패했습니다.");
     }
   };
   return (
@@ -211,7 +218,12 @@ function Signup() {
           </ValidationFalseText>
         )}
         <SignupBoxLabel htmlFor="name-input">Name</SignupBoxLabel>
-        <SignupBoxInput type="text" name="" id="name-input" onChange={nameChangeHandler}/>
+        <SignupBoxInput
+          type="text"
+          name=""
+          id="name-input"
+          onChange={nameChangeHandler}
+        />
         {/* 이용약관동의 구현할 것 */}
         <SignupButton onClick={validationCheck}>Sign Up</SignupButton>
       </SignupBox>

@@ -39,6 +39,7 @@ const HeaderRight = styled.ul`
   list-style: none;
   display: flex;
   gap: 10px;
+  cursor: pointer;
 `;
 
 function Header() {
@@ -69,7 +70,9 @@ function Header() {
   return (
     <HeaderWrapper>
       <HeaderLeft>
-        <span onClick={goToMain}>TOWN LIBRARY</span>
+        <span onClick={goToMain} style={{ cursor: "pointer" }}>
+          TOWN LIBRARY
+        </span>
         <HeaderSearch onKeyDown={searchKeyDownHandler}>
           <HeaderSearchInput type="text" onChange={searchChangeHandler} />
           <FontAwesomeIcon
@@ -79,6 +82,7 @@ function Header() {
               bottom: "15px",
               right: "15px",
               color: "rgba(0,0,0,0.8)",
+              cursor: "pointer",
             }}
             onClick={goToSearch}
           />
