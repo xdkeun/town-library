@@ -1,6 +1,6 @@
 //책 상세조회 페이지
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import BooksData from "../data/BooksData";
 import styled from "styled-components";
 import Header from "../components/Header";
@@ -33,14 +33,19 @@ function Detail() {
     }
   };
 
+
+
   //Detail 페이지에 들어올때마다 최근본도서 localStorage에 저장하도록 구현
   const [recentBooks, setRecentBooks] = useState([]);
   useEffect(() => {
     // 기존의 최근본도서 목록을 localStorage에서 가져옴
-    const storedRecentBooks = JSON.parse(localStorage.getItem("recentBooks")) || [];
+    const storedRecentBooks =
+      JSON.parse(localStorage.getItem("recentBooks")) || [];
 
     // 현재 책이 이미 최근본도서 목록에 있는지 확인
-    const isBookInRecent = storedRecentBooks.some((recentBook) => recentBook?.isbn === book?.isbn);
+    const isBookInRecent = storedRecentBooks.some(
+      (recentBook) => recentBook?.isbn === book?.isbn
+    );
 
     // 최근본도서 목록을 업데이트
     if (!isBookInRecent && book) {
@@ -49,6 +54,17 @@ function Detail() {
       setRecentBooks(updatedRecentBooks);
     }
   }, [book]);
+
+
+  const navigate = useNavigate();
+  const buyButtonClickHandler = (book, count) => {
+    navigate('/order',{
+      state:{
+        book: book,
+        count: count
+      }
+    })
+  }
 
   return (
     <>
@@ -104,7 +120,7 @@ function Detail() {
         </BottomOption>
         <OrderButtonWrapper>
           <OrderButton>장바구니</OrderButton>
-          <OrderButton>바로구매</OrderButton>
+          <OrderButton onClick={()=>buyButtonClickHandler(book, count)}>바로구매</OrderButton>
         </OrderButtonWrapper>
       </BottomButton>
     </>

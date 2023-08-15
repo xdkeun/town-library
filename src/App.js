@@ -6,6 +6,7 @@ import SignupPage from "./pages/SignupPage";
 import Detail from "./pages/Detail";
 import Search from "./pages/Search";
 import RecentBook from "./pages/RecentBook";
+import Order from "./pages/Order";
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/detail/:title" element={<Detail />} />
         <Route path="/search/:search" element={<Search />} />
         <Route path="/recentbook" element={<RecentBook />} />
+        <Route path="/order" element={<Order />} />
       </Routes>
     </BrowserRouter>
   );
