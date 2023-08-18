@@ -7,6 +7,7 @@ const CategoryButtonUl = styled.ul`
   padding: 0;
   display: flex;
   gap: 10px;
+  margin:20px 0;
 `;
 const CategoryButtonLi = styled.li`
   text-align: center;

@@ -159,5 +159,6 @@ const HomeButton = styled(Link)`
   font-size: 30px;
   font-weight: 600;
   padding: 10px 10px;
+  cursor:pointer;
 `;
 export default OrderComplete;

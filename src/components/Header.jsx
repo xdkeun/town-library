@@ -10,7 +10,7 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 5px 15px;
+  padding: 10px 15px;
   box-sizing: border-box;
 `;
 

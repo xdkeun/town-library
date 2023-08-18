@@ -236,11 +236,13 @@ const ItemCount = styled.div`
   border: 1px solid black;
   padding: 0 10px;
   border-radius: 10px;
+  height:50px;
 `;
 
 const Count = styled.p`
   width: 40px;
   text-align: center;
+  font-size:20px;
 `;
 
 const OrderButtonWrapper = styled.div`
