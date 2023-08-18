@@ -29,6 +29,7 @@ function Order() {
   const [postCode, setPostCode] = useState("");
   const [addr, setAddr] = useState("");
   const [detailAddr, setDetailAddr] = useState("");
+  const [fullAddr, setFullAddr] = useState("");
   function DaumPostcode() {
     new window.daum.Postcode({
       oncomplete: function (data) {
@@ -39,20 +40,37 @@ function Order() {
   }
   function detailAddrChangeHandler(event) {
     setDetailAddr(event.target.value);
+    setFullAddr(`(${postCode}) ${addr} ${detailAddr}`);
   }
 
   const navigate = useNavigate();
   function orderComplete() {
-    navigate("/ordercomplete", {
-      state: {
-        book: book,
-      },
-    });
+    if (
+      name.length > 0 &&
+      email.length > 0 &&
+      phoneNumber.length > 0 &&
+      postCode.length > 0 &&
+      (addr.length > 0) & (detailAddr.length > 0)
+    ) {
+      navigate("/ordercomplete", {
+        state: {
+          book: book,
+          count: count,
+          name: name,
+          email: email,
+          phoneNumber: phoneNumber,
+          fullAddr: fullAddr,
+        },
+      });
+    } else {
+      alert("모든 정보를 입력하세요.");
+    }
   }
   const Price = (
     book.sale_price === -1 ? book.price : book.sale_price
   ).toLocaleString();
 
+  // +, - 클릭 시 주문 수량 갯수 변경(최소1, 최대9)
   function countChangeHandler(value) {
     if (value == "minus" && count > 1) {
       setCount(count - 1);
@@ -271,4 +289,5 @@ const OrderButton = styled.button`
   bottom: -70px;
   right: 0;
 `;
+
 export default Order;
