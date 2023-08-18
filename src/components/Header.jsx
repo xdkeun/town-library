@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -35,6 +34,35 @@ const HeaderSearchInput = styled.input`
   border-radius: 30px;
 `;
 
+const RecentSearch = styled.div`
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 100;
+`;
+
+const RecentSearchHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 8px 4px;
+  z-index: 100;
+`;
+
+const RecentSearchInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  gap: 2px;
+  font-size: 16px;
+  background-color: white;
+  z-index: 100;
+`;
+
 const HeaderRight = styled.ul`
   list-style: none;
   display: flex;
@@ -44,36 +72,75 @@ const HeaderRight = styled.ul`
 
 function Header() {
   const navigate = useNavigate();
+
+  const [search, setSearch] = useState("");
+  const [showRecentSearch, setShowRecentSearch] = useState(false);
+  const [recentSearches, setRecentSearches] = useState(
+    JSON.parse(localStorage.getItem("recentSearches")) || []
+  );
+
   const goToMain = () => {
     navigate("/");
   };
+
   const goToLogin = () => {
     navigate("/login");
   };
+
   const goToSignup = () => {
     navigate("/signup");
   };
+
   const goToSearch = () => {
     navigate(`/search/${search}`);
   };
+
   const goToRecentBook = () => {
     navigate("/recentbook");
   };
-  const [search, setSearch] = useState("");
+
   const searchChangeHandler = (event) => {
     const searchInput = event.target.value;
     setSearch(searchInput);
   };
+
   const searchKeyDownHandler = (event) => {
-    if (event.key == "Enter") goToSearch();
+    if (event.key === "Enter") {
+      goToSearch();
+    }
   };
+
+  const clearRecentSearches = () => {
+    localStorage.removeItem("recentSearches");
+    setRecentSearches([]); // 상태 업데이트로 컴포넌트 재렌더링
+  };
+
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.key === "recentSearches") {
+        setRecentSearches(JSON.parse(event.newValue));
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
   return (
     <HeaderWrapper>
       <HeaderLeft>
         <span onClick={goToMain} style={{ cursor: "pointer" }}>
           TOWN LIBRARY
         </span>
-        <HeaderSearch onKeyDown={searchKeyDownHandler}>
+        <HeaderSearch
+          onKeyDown={searchKeyDownHandler}
+          onFocus={() => {
+            setShowRecentSearch(true);
+          }}
+        >
           <HeaderSearchInput type="text" onChange={searchChangeHandler} />
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
@@ -86,6 +153,42 @@ function Header() {
             }}
             onClick={goToSearch}
           />
+          <RecentSearch
+            style={{ display: showRecentSearch ? "block" : "none" }}
+            onMouseOver={() => {
+              setShowRecentSearch(true);
+            }}
+            onMouseOut={() => {
+              setShowRecentSearch(false);
+            }}
+          >
+            <RecentSearchHeader>
+              <span>최근 검색어</span>
+              <span
+                style={{ color: "rgba(0,0,0,0.5)", cursor: "pointer" }}
+                onClick={clearRecentSearches}
+              >
+                전체 삭제
+              </span>
+            </RecentSearchHeader>
+            <RecentSearchInfo>
+              {recentSearches.length === 0 ? (
+                <span>최근 검색어가 없습니다.</span>
+              ) : (
+                recentSearches.map((recentSearch, index) => (
+                  <span
+                    key={index}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      navigate(`/search/${recentSearch}`);
+                    }}
+                  >
+                    {recentSearch}
+                  </span>
+                ))
+              )}
+            </RecentSearchInfo>
+          </RecentSearch>
         </HeaderSearch>
       </HeaderLeft>
       <HeaderRight>
@@ -97,4 +200,5 @@ function Header() {
     </HeaderWrapper>
   );
 }
+
 export default Header;

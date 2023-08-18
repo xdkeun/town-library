@@ -8,7 +8,17 @@ import { Link } from "react-router-dom";
 function Search() {
   const { search } = useParams();
   const books = BooksData(search);
-
+  //검색어를 localStorage에 저장, Header에서 최근 검색어에 사용
+  useEffect(() => {
+    if (search) {
+      const recentSearches = localStorage.getItem("recentSearches");
+      const searchesArray = recentSearches ? JSON.parse(recentSearches) : [];
+      if (!searchesArray.includes(search)) {
+        searchesArray.unshift(search);
+        localStorage.setItem("recentSearches", JSON.stringify(searchesArray));
+      }
+    }
+  }, [search]);
   return (
     <>
       <Header />
