@@ -1,10 +1,9 @@
 //책 검색 결과 페이지
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import BooksData from "../data/BooksData";
 import Header from "../components/Header";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 function Search() {
   const { search } = useParams();
   const books = BooksData(search);
@@ -19,6 +18,17 @@ function Search() {
       }
     }
   }, [search]);
+
+  //바로 구매 버튼 클릭 시, Order로 이동
+  const navigate = useNavigate();
+  const buyButtonClickHandler = (book) => {
+    navigate("/order", {
+      state: {
+        book: book,
+        count: 1, //검색 페이지에서는 수량 지정이 없으므로 1로 넘김
+      },
+    });
+  };
   return (
     <>
       <Header />
@@ -68,7 +78,13 @@ function Search() {
               </SearchBookContents>
               <OrderButtonWrapper>
                 <OrderButton>장바구니</OrderButton>
-                <OrderButton>바로구매</OrderButton>
+                <OrderButton
+                  onClick={() => {
+                    buyButtonClickHandler(book);
+                  }}
+                >
+                  바로구매
+                </OrderButton>
               </OrderButtonWrapper>
             </SearchBookArticle>
           ))

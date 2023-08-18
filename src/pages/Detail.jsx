@@ -33,8 +33,6 @@ function Detail() {
     }
   };
 
-
-
   //Detail 페이지에 들어올때마다 최근본도서 localStorage에 저장하도록 구현
   const [recentBooks, setRecentBooks] = useState([]);
   useEffect(() => {
@@ -55,16 +53,15 @@ function Detail() {
     }
   }, [book]);
 
-
   const navigate = useNavigate();
   const buyButtonClickHandler = (book, count) => {
-    navigate('/order',{
-      state:{
+    navigate("/order", {
+      state: {
         book: book,
-        count: count
-      }
-    })
-  }
+        count: count,
+      },
+    });
+  };
 
   return (
     <>
@@ -120,7 +117,9 @@ function Detail() {
         </BottomOption>
         <OrderButtonWrapper>
           <OrderButton>장바구니</OrderButton>
-          <OrderButton onClick={()=>buyButtonClickHandler(book, count)}>바로구매</OrderButton>
+          <OrderButton onClick={() => buyButtonClickHandler(book, count)}>
+            바로구매
+          </OrderButton>
         </OrderButtonWrapper>
       </BottomButton>
     </>
@@ -236,13 +235,13 @@ const ItemCount = styled.div`
   border: 1px solid black;
   padding: 0 10px;
   border-radius: 10px;
-  height:50px;
+  height: 50px;
 `;
 
 const Count = styled.p`
   width: 40px;
   text-align: center;
-  font-size:20px;
+  font-size: 20px;
 `;
 
 const OrderButtonWrapper = styled.div`
